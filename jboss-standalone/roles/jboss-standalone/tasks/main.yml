@@ -1,5 +1,7 @@
 ---
 - name: Install Java 1.7 and some basic dependencies
+  # with_items，官方文档链接：https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html#with-items
+  # state是什么意思？https://docs.ansible.com/ansible/latest/collections/ansible/builtin/yum_module.html
   yum:
     name: "{{ item }}"
     state: present
@@ -10,6 +12,8 @@
    - libsemanage-python
 
 - name: Download JBoss from jboss.org
+  # ansible.builtin.get_url – Downloads files from HTTP, HTTPS, or FTP to node
+  # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/get_url_module.html
   get_url:
     url: http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip
     dest: /opt/jboss-as-7.1.1.Final.zip
