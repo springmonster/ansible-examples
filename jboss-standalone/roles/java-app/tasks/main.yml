@@ -5,6 +5,8 @@
     dest: /tmp
 
 - name: Deploy HelloWorld to JBoss
+  # 这里是ansible jboss的文档
+  # https://docs.ansible.com/ansible/latest/collections/community/general/jboss_module.html
   jboss:
     deploy_path: /usr/share/jboss-as/standalone/deployments/
     src: /tmp/jboss-helloworld.war
